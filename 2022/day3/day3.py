@@ -19,17 +19,14 @@ def main():
 			if letter in second:
 				priorities.append(priority(letter))
 				break
-	
 	print("Part 1:", sum(priorities))
 
 	priorities = []
 	for i in range(0, len(data), 3):
 		for letter in data[i]:
-			if letter in data[i+1]:
-				if letter in data[i+2]:
-					priorities.append(priority(letter))
-					break
-	
+			if letter in data[i+1] and letter in data[i+2]:
+				priorities.append(priority(letter))
+				break
 	print("Part 2:", sum(priorities))
 
 if __name__ == "__main__":
