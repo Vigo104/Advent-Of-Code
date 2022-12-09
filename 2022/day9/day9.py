@@ -5,7 +5,7 @@ SCRIPT_DIR = Path(__file__).parent
 INPUT_FILE = Path(SCRIPT_DIR, "input/input.txt")
 
 class Point():
-	def __init__(self, x, y):
+	def __init__(self, x=0, y=0):
 		self.x = x
 		self.y = y
 
@@ -45,8 +45,8 @@ def main():
 	with open(INPUT_FILE, mode="rt") as f:
 		data = [[int(y) if y.isdigit() else y for y in x.split()] for x in f.read().splitlines()]
 
-	head = Point(0, 0)
-	tail = Point(0, 0)
+	head = Point()
+	tail = Point()
 	positions = []
 	for dir, n in data:
 		for _ in range(n):
@@ -63,7 +63,7 @@ def main():
 			positions.append((tail.x, tail.y))
 	print("Part 1:", len(set(positions)))
 
-	knots = [Point(0, 0) for _ in range(10)]
+	knots = [Point() for _ in range(10)]
 	positions = []
 	for dir, n in data:
 		for _ in range(n):
